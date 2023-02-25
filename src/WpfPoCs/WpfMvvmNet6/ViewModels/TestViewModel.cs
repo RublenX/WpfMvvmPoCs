@@ -1,26 +1,24 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System;
 using WpfMvvmNet6.Services;
 
 namespace WpfMvvmNet6.ViewModels
 {
-    public partial class MainViewModel : ObservableObject
+    public partial class TestViewModel : ObservableObject
     {
         #region Propiedades Observables
         [ObservableProperty]
-        private string textoPrueba = "Esto es un texto de prueba";
+        private string nombre = "Fulanito"; 
         #endregion
 
-        #region Ciclo de vida
+        #region Ciclo de Vida
         private IWindowService _windowService;
 
-        public MainViewModel()
+        public TestViewModel()
         {
             _windowService = new WindowService();
         }
-
-        public MainViewModel(IWindowService windowService)
+        public TestViewModel(IWindowService windowService)
         {
             _windowService = windowService;
         }
@@ -28,16 +26,10 @@ namespace WpfMvvmNet6.ViewModels
 
         #region Comandos
         [RelayCommand]
-        private void CambiarTexto()
+        public void Close()
         {
-            TextoPrueba = $"Modificado a las {DateTime.Now.ToLongTimeString()}";
-        }
-
-        [RelayCommand]
-        private void OpenWindow()
-        {
-            _windowService.Show();
-        }
+            _windowService.Close();
+        } 
         #endregion
     }
 }

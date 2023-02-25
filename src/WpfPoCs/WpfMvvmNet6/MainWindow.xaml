@@ -13,6 +13,6 @@
     <Grid>
         <Label x:Name="lblTextoEjemplo" Content="{Binding TextoPrueba}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnCambiarTexto" Content="Cambiar Texto" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Command="{Binding CambiarTextoCommand, Mode=OneWay}"/>
-
+        <Button x:Name="btnAbrirVentana" Content="Abrir Ventana" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Command="{Binding OpenWindowCommand, Mode=OneWay}"/>
     </Grid>
 </Window>
