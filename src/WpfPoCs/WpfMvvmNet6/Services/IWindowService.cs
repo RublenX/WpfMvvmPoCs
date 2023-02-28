@@ -3,6 +3,6 @@
     public interface IWindowService
     {
         void Close();
-        void Show();
+        void Show(Ventanas ventana);
     }
 }

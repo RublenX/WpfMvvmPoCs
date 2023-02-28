@@ -1,5 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
+using System.Threading.Tasks;
+using WpfMvvmNet6.Messaging.Messages;
 using WpfMvvmNet6.Services;
 
 namespace WpfMvvmNet6.ViewModels
@@ -8,7 +11,10 @@ namespace WpfMvvmNet6.ViewModels
     {
         #region Propiedades Observables
         [ObservableProperty]
-        private string nombre = "Fulanito"; 
+        private string etiqueta = "Segundero actual: ";
+
+        [ObservableProperty]
+        private int segundos = -1;
         #endregion
 
         #region Ciclo de Vida
@@ -25,6 +31,12 @@ namespace WpfMvvmNet6.ViewModels
         #endregion
 
         #region Comandos
+        [RelayCommand]
+        public async Task RecuperarSegundosAsync()
+        {
+            Segundos = await WeakReferenceMessenger.Default.Send<CurrentSegunderoRequestMessage>();
+        }
+
         [RelayCommand]
         public void Close()
         {

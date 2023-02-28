@@ -2,6 +2,7 @@
 using System;
 using System.ComponentModel;
 using System.Windows;
+using System.Xml;
 using WpfMvvmNet6.Services;
 using WpfMvvmNet6.ViewModels;
 
@@ -39,6 +40,7 @@ namespace WpfMvvmNet6
 
             // Servicios
             services.AddSingleton<IWindowService, WindowService>();
+            services.AddSingleton<SegunderoService>();
 
             // VistaModelos
             services.AddTransient<MainViewModel>();

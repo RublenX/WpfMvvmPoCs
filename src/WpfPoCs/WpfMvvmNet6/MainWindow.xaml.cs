@@ -9,6 +9,8 @@ namespace WpfMvvmNet6
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Ventanas Ventana { get; set; } = Ventanas.Segundero;
+
         public MainWindow()
         {
             InitializeComponent();

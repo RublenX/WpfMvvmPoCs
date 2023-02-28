@@ -16,10 +16,24 @@ namespace WpfMvvmNet6.Services
             }
         }
 
-        public void Show()
+        public void Show(Ventanas ventana)
         {
-            var window = new TestWindow();
-            window.Show();
+            Window? window = null;
+
+            switch (ventana)
+            {
+                case Ventanas.Main:
+                    window = new MainWindow();
+                    break;
+                case Ventanas.Test:
+                    window = new TestWindow();
+                    break;
+                case Ventanas.Segundero:
+                    window = new SegunderoWindow();
+                    break;
+            }
+
+            window?.Show();
         }
     }
 }

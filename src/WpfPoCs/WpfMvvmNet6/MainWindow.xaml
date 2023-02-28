@@ -13,6 +13,8 @@
     <Grid>
         <Label x:Name="lblTextoEjemplo" Content="{Binding TextoPrueba}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnCambiarTexto" Content="Cambiar Texto" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Command="{Binding CambiarTextoCommand, Mode=OneWay}"/>
-        <Button x:Name="btnAbrirVentana" Content="Abrir Ventana" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Command="{Binding OpenWindowCommand, Mode=OneWay}"/>
+        <Button x:Name="btnAbrirVentana" Content="Abrir Ventana Test" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top" Command="{Binding OpenWindowCommand, Mode=OneWay}" CommandParameter="{x:Static local:Ventanas.Test}"/>
+        <Button x:Name="btnAbrirSegundero" Content="Abrir Ventana Segundero" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" Command="{Binding OpenWindowCommand, Mode=OneWay}" CommandParameter="{x:Static local:Ventanas.Segundero}"/>
+        <Button x:Name="btnStartSegundero" Content="Start Seg" HorizontalAlignment="Left" Margin="152,91,0,0" VerticalAlignment="Top" Command="{Binding StartSegunderoCommand, Mode=OneWay}"/>
     </Grid>
 </Window>

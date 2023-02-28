@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
+using System.Threading.Tasks;
 using WpfMvvmNet6.Services;
 
 namespace WpfMvvmNet6.ViewModels
@@ -14,15 +15,18 @@ namespace WpfMvvmNet6.ViewModels
 
         #region Ciclo de vida
         private IWindowService _windowService;
+        private SegunderoService _segunderoService;
 
         public MainViewModel()
         {
             _windowService = new WindowService();
+            _segunderoService = new SegunderoService();
         }
 
-        public MainViewModel(IWindowService windowService)
+        public MainViewModel(IWindowService windowService, SegunderoService segunderoService)
         {
             _windowService = windowService;
+            _segunderoService = segunderoService;
         }
         #endregion
 
@@ -34,9 +38,15 @@ namespace WpfMvvmNet6.ViewModels
         }
 
         [RelayCommand]
-        private void OpenWindow()
+        private void OpenWindow(Ventanas ventana)
         {
-            _windowService.Show();
+            _windowService.Show(ventana);
+        }
+
+        [RelayCommand]
+        private async Task StartSegundero()
+        {
+            await _segunderoService.StartAsync(new System.Threading.CancellationToken());
         }
         #endregion
     }
